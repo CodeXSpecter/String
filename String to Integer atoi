@@ -5,6 +5,7 @@ do not use the parseInt() and valueOf() methods...........
 
 class Solution {
     public int myAtoi(String s) {
+        //used to delete the extra leading and trailing whitespaces
         s=s.trim();
         //check for empty
         if (s.isEmpty()){
