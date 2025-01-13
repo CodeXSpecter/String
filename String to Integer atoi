@@ -33,7 +33,6 @@ class Solution {
             result = result * 10 + (s.charAt(index) - '0');
             index++;
         }
-        
         // Apply the sign and return the result
         return (int) result * sign;
     }
