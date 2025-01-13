@@ -1,0 +1,39 @@
+#LEETCODE 8
+#JAVA
+In this given code we need to convert the given string into integer without throwing the number format exception 
+do not use the parseInt() and valueOf() methods...........
+
+class Solution {
+    public int myAtoi(String s) {
+        s=s.trim();
+        //check for empty
+        if (s.isEmpty()){
+            return 0;
+        }
+        //initilization of variables
+        int index=0;
+        int sign =1;
+        long result=0;
+
+        if(s.charAt(index)=='-'){
+            sign=-1;
+            index++;
+        }else if(s.charAt(index)=='+'){
+            index++;
+        }
+        // Convert the digits to an integer
+        while (index < s.length() && Character.isDigit(s.charAt(index))) {
+            // Before updating, check if result will overflow
+            if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && s.charAt(index) - '0' > Integer.MAX_VALUE % 10)) {
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            
+            // Update result
+            result = result * 10 + (s.charAt(index) - '0');
+            index++;
+        }
+        
+        // Apply the sign and return the result
+        return (int) result * sign;
+    }
+}
