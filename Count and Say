@@ -1,5 +1,5 @@
 #leetcode 38
-JAVA
+#JAVA
 
 class Solution {
     public String countAndSay(int n) {
